@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<div v-html="msg"></div>
+		<div v-bind:title="two">wwwwww</div>
+		<input type="checkbox" v-bind:checked="flag">
+		<input type="checkbox" v-model:checked="flag">
+		<input type="number" v-model="width"/>
+		<input type="number" v-model="height"/>
+		<br/>
+		调色板：
+		<input type="range" mix="0" max="255" v-model="r">
+		<input type="range" mix="0" max="255" v-model="g">
+		<input type="range" mix="0" max="255" v-model="b">
+		<br>
+		<div class="color" v-bind:style="{width:width+'px',height:height+'px',background:'rgb('+r+','+g+','+b+')'}">aaaa</div>
+		<br>
+		<br>
+		调色板2号：<input type="color" v-model="bg"/>
+		<br>
+		<div class="color" v-bind:style="{width:width+'px',height:height+'px',background:bg}">aaaa</div>
+
+	</div>
+
+
+
+	<script>
+		var vm = new Vue({
+			el:"#box", //管理的元素
+			data:{     //data 存放数据
+				msg:"<h1>你好,世界</h1>hello,world",
+				two:"hi",
+				flag:true,
+				width:200,
+				height:200,
+				//background:"#ccc",
+				r:0,
+				g:0,
+				b:0,
+				bg:"#ccc"
+
+			},
+			//template:"<p>{{two}}</p>" //模板
+		})
+	</script>
+</body>
+</html>
